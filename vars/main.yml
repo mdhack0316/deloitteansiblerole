@@ -1,0 +1,7 @@
+pkg_name: httpd
+pkg_state: present
+code: Hello From Ansible Role
+svc_name: httpd
+svc_state: started 
+apache_location: /var/www/html/index.html
+

@@ -1,0 +1,18 @@
+---
+- name: Installing apache server
+  yum: 
+   name: "{{ pkg_name }}"
+   state: "{{ pkg_state }}"
+- name: Creating index.html
+  copy: 
+   content: "{{ code }}"
+   dest: "{{ apache_location }}"
+- name: Copyina a static fil as a code
+  copy: 
+   src: mayank.html
+   dest: /var/www/html/
+- name: using template
+  template: 
+   src: devops.html.j2
+   dest: /var/www/html/devops.html
+  notify: restart server
